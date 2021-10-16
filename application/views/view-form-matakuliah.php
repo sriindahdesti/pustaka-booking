@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Form Input Matakuliah<</title>
+    <style>
+        .pesan {
+            color: red;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <?php echo validation_errors(); ?>
+    <div class="pesan">
+        <?php echo validation_errors(); ?>
+    </div>
+
     <center>
         <form action="<?= base_url('matakuliah/cetak'); ?>" method="post">
             <table>
