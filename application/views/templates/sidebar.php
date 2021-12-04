@@ -33,7 +33,7 @@
   <li class="nav-item active text-white">
     <!-- Nav Item - Dashboard -->
   <li class="nav-item ">
-    <a class="nav-link pb-0 text-white" href="<?= base_url('user'); ?>">
+    <a class="nav-link pb-0 text-white" href="<?= base_url('admin/dataUser'); ?>">
       <i class="fa fa-fw fa-book"></i>
       <span>Data User</span></a>
   </li>

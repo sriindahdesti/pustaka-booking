@@ -111,6 +111,63 @@ class Buku extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function ubahKategori()
+    {
+        $where =  $this->uri->segment(3);
+        // var_dump($where);
+        // die;
+
+        $data['judul'] = 'Edit Kategori';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['buku'] = $this->ModelBuku->getBuku()->result_array();
+        $data['kategori'] = $this->ModelBuku->kategoriWhere($where)->result_array();
+
+        // var_dump($data['kategori']);
+        // die;
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('buku/ubah_kategori', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function editKategori()
+    {
+        $data['judul'] = 'Edit Kategori';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $kategori = $this->input->post('kategori');
+        $id =  $this->input->post('id');
+        $this->db->set('kategori', $kategori);
+        $this->db->where('id', $id);
+        $this->db->update('kategori');
+        redirect('buku/kategori');
+    }
+
+    public function tambahKategori()
+    {
+        $data['judul'] = 'tambah Kategori';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+
+        $data = [
+            'kategori' => htmlspecialchars($this->input->post('kategori')),
+        ];
+
+        // var_dump($data);
+        // die;
+
+        $this->db->insert('kategori', $data);
+        redirect('buku/kategori');
+    }
+
+    public function hapusKategori()
+    {
+        $id =  $this->uri->segment(3);
+        $this->db->where('id', $id);
+        $this->db->delete('kategori');
+        redirect('buku/kategori');
+    }
+
+
     public function hapusBuku()
     {
         $where = ['id' => $this->uri->segment(3)];

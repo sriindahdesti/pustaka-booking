@@ -9,7 +9,7 @@
                 </div>
             <?php } ?>
             <?= $this->session->flashdata('pesan'); ?>
-            <a href="" class="btn btn-primary mb-3" datatoggle="modal" data-target="#kategoriBaruModal"><i class="fas fafile-alt"></i> Tambah Kategori</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#kategoriBaruModal"><i class="fas fafile-alt"></i> Tambah Kategori</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -39,7 +39,7 @@
 <!-- /.container-fluid -->
 
 <!-- Modal Tambah kategori baru-->
-<div class="modal fade" id="kategoriBaruModal" tabindex="-1" role="dialog" aria-labelledby="kategoriBaruModalLabel" ariahidden="true">
+<div class="modal fade" id="kategoriBaruModal" tabindex="-1" role="dialog" aria-labelledby="kategoriBaruModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -48,16 +48,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('buku/kategori'); ?>" method="post">
+            <form action="<?= base_url('buku/tambahKategori'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <select name="kategori" class="form-control form-control-user">
-                            <option value="">Pilih Kategori</option>
-                            <?php $k = ['Sains', 'Hobby', 'Komputer', 'Komunikasi', 'Hukum', 'Agama', 'Populer', 'Bahasa', 'Komik'];
-                            for ($i = 0; $i < 9; $i++) { ?>
-                                <option value="<?= $k[$i]; ?>"><?= $k[$i]; ?></option>
-                            <?php } ?>
-                        </select>
+                        <input type="text" class="form-control form-control-user" value="" id="kategori" placeholder="Masukkan kategori" name="kategori">
                     </div>
                 </div>
                 <div class="modal-footer">
