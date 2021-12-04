@@ -17,7 +17,7 @@
   <li class="nav-item active">
     <!-- Nav Item - Dashboard -->
   <li class="nav-item ">
-    <a class="nav-link pb-0 text-white" href="<?= base_url('buku'); ?>">
+    <a class="nav-link pb-0 text-white" href="<?= base_url('admin'); ?>">
       <i class="fa fa-fw fa-book"></i>
       <span>Dashboard</span></a>
   </li>
@@ -33,12 +33,12 @@
   <li class="nav-item active text-white">
     <!-- Nav Item - Dashboard -->
   <li class="nav-item ">
-    <a class="nav-link pb-0 text-white" href="<?= base_url('buku'); ?>">
+    <a class="nav-link pb-0 text-white" href="<?= base_url('user'); ?>">
       <i class="fa fa-fw fa-book"></i>
       <span>Data User</span></a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link pb-0 text-white" href="<?= base_url('buku'); ?>">
+    <a class="nav-link pb-0 text-white" href="<?= base_url('buku/kategori'); ?>">
       <i class="fa fa-fw fa-book"></i>
       <span>Kategori </span></a>
   </li>
